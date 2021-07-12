@@ -1,38 +1,109 @@
-.App {
-  text-align: center;
+body {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url('./images/bg-mobile-light.jpg');
+    background-color: var(--very-light-grayish-blue);
+    margin: 4rem 1.25rem;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+header {
+    display: flex;
+    justify-content: space-between;
+    margin: 2.5rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.clickable {
+    cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.extend {
+    flex: 1;
 }
 
-.App-link {
-  color: #61dafb;
+.height {
+    height: 3rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.no-bg-bd {
+    background: none;
+    border: none;
+}
+
+.bg-center-no-re {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.hidden, .Navigation.hidden-sm {
+    display: none;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flex-sb-c {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pd-x {
+    padding: 0 1rem;
+}
+
+.mg-x {
+    margin: 0 0.75rem;
+}
+
+.mg-y {
+    margin: 3rem 0;
+}
+
+.very-light-text {
+    color: var(--very-light-gray);
+}
+
+.light-text {
+    color: var(--dark-grayish-blue);
+}
+
+.dark-text {
+    color: var(--very-dark-grayish-blue);
+}
+
+.bold {
+    font-weight: 700;
+}
+
+.title {
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+}
+
+.container {
+    background-color: var(--very-light-gray);
+    border-radius: 5px;
+    margin-bottom: 1.25rem;
+}
+
+.todoListInfo button:hover {
+    color: var(--very-dark-grayish-blue);
+}
+
+.App p {
+    text-align: center;
+}
+
+/* Desktop query */
+@media (min-width: 1024px) {
+    body {
+        background-image: url('./images/bg-desktop-light.jpg');
+        margin: 5rem 17rem;
+    }
+
+    .hidden-lg {
+        display: none;
+    }
 }

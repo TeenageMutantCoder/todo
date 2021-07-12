@@ -1,0 +1,18 @@
+.Navigation {
+    justify-content: center;
+}
+
+.Navigation span:hover {
+    color: var(--very-dark-grayish-blue);
+}
+
+.Navigation input[type="radio"]:checked + span {
+    color: var(--bright-blue);
+}
+
+/* Desktop query */
+@media (min-width: 1024px) {
+    .Navigation.hidden-sm {
+        display: flex;
+    }
+}
