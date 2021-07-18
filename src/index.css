@@ -11,7 +11,14 @@ body, button, input {
 
 :root {
   --bright-blue: hsl(220, 98%, 61%);
+}
 
+body, .root, .App {
+  min-height: 100%;
+}
+
+/* Light theme */
+.default {
   --very-light-gray: hsl(0, 0%, 98%);
   --very-light-grayish-blue: hsl(236, 33%, 92%);
   --light-grayish-blue: hsl(233, 11%, 84%);
@@ -19,20 +26,29 @@ body, button, input {
   --very-dark-grayish-blue: hsl(235, 19%, 35%);
 }
 
-.light {
-  --very-light-gray: hsl(0, 0%, 98%);
-  --very-light-grayish-blue: hsl(236, 33%, 92%);
-  --light-grayish-blue: hsl(233, 11%, 84%);
-  --dark-grayish-blue: hsl(236, 9%, 61%);
-  --very-dark-grayish-blue: hsl(235, 19%, 35%);
-}
-
-.dark {
+/* Dark theme */
+.alternate {
   --very-dark-blue: hsl(235, 21%, 11%);
   --very-dark-desaturated-blue: hsl(235, 24%, 19%);
   --light-grayish-blue: hsl(234, 39%, 85%);
   --hover-light-grayish-blue: hsl(236, 33%, 92%);
-  --dark-grayish-blue: hsl(234, 11%, 52%);
-  --very-dark-grayish-blue: hsl(233, 14%, 35%);
+  --grayish-blue: hsl(234, 11%, 52%);
+  --dark-grayish-blue: hsl(233, 14%, 35%);
   --very-dark-grayish-blue: hsl(237, 14%, 26%);
+}
+
+.default .light {
+  display: block;
+}
+
+.default .dark {
+  display: none; 
+}
+
+.alternate .light {
+  display: none;
+}
+
+.alternate .dark {
+  display: block;
 }

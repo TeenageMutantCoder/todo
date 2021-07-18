@@ -15,22 +15,40 @@ function App() {
     {id: 5, text: 'Win 5 online games in Rocket League', isCompleted: false},
     {id: 6, text: 'Go to sleep', isCompleted: false}
   ];
+  let defaultTheme = 'default';
 
   const savedTodos = window.localStorage.getItem('todos');
   if (savedTodos) {
     defaultTodos = JSON.parse(savedTodos);
+    defaultTodos = defaultTodos.map((todo, index) => {return {...todo, id: index}}); // Resets IDs so that they stay low and do not clash
   }
+
+  const savedTheme = window.localStorage.getItem('theme');
+  if (savedTheme) {
+    defaultTheme = JSON.parse(savedTheme);
+  }
+  document.documentElement.className = defaultTheme; // Sets root element class name so it can access css variables, otherwise background will not work
+  
+  const [ theme, setTheme ] = useState(defaultTheme);
   const [ todos, setTodos ] = useState(defaultTodos);
   const [ counter, setCounter ] = useState(defaultTodos.length);
   const [ todosFilter, setTodosFilter ] = useState('all');
 
-  const updateLocalStorage = (todos) => {
-    window.localStorage.setItem('todos', JSON.stringify(todos));
+  const switchTheme = () => {
+    let newTheme = 'default';
+    if (theme === 'default') newTheme = 'alternate';
+    updateLocalStorage('theme', newTheme);
+    setTheme(newTheme);
+    document.documentElement.className = newTheme; // If confused, see comment above
+  };
+
+  const updateLocalStorage = (property, value) => {
+    window.localStorage.setItem(property, JSON.stringify(value));
   };
 
   const addTodo = (text, isCompleted) => {
     const newTodos = [...todos, {id: counter + 1, text: text, isCompleted: isCompleted}];
-    updateLocalStorage(newTodos);
+    updateLocalStorage('todos', newTodos);
     setTodos(newTodos);
     setCounter(counter + 1);
   };
@@ -39,13 +57,13 @@ function App() {
     const newTodos = [...todos];
     const todo = newTodos.find((todo) => todo.id === id);
     todo.isCompleted = isCompleted;
-    updateLocalStorage(newTodos);
+    updateLocalStorage('todos', newTodos);
     setTodos(newTodos);
   };
   
   const deleteTodo = (id) => {
     const newTodos = todos.filter((todo) => todo.id !== id);
-    updateLocalStorage(newTodos);
+    updateLocalStorage('todos', newTodos);
     setTodos(newTodos);
   };
   
@@ -63,13 +81,13 @@ function App() {
 
     newTodos.splice(initialIndex, 1);
     newTodos.splice(finalIndex, 0, todo);
-    updateLocalStorage(newTodos);
+    updateLocalStorage('todos', newTodos);
     setTodos(newTodos);
   };
 
   const clearCompleted = () => {
     const newTodos = todos.filter((todo) => !todo.isCompleted);
-    updateLocalStorage(newTodos);
+    updateLocalStorage('todos', newTodos);
     setTodos(newTodos);
   };
 
@@ -93,8 +111,8 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h1 className="very-light-text title">Todo</h1>
-        <ThemeSwitcher />
+        <h1 className="title">Todo</h1>
+        <ThemeSwitcher switchTheme={switchTheme} />
       </header>
 
       <div className="container">
@@ -109,10 +127,10 @@ function App() {
           ))}
         </div>
 
-        <div className="todoListInfo light-text flex-sb-c height pd-x">
-          <p>{filterTodos().length} item{(filterTodos().length !== 1)? 's': ''} left</p>
+        <div className="todoListInfo flex-sb-c height pd-x">
+          <p className="text">{filterTodos().length} item{(filterTodos().length !== 1)? 's': ''} left</p>
           <Navigation id="1" classes="hidden-sm" updateFilter={updateFilter} todosFilter={todosFilter} />
-          <button type="button" className="clickable no-bg-bd light-text" onClick={clearCompleted}>Clear Completed</button>
+          <button type="button" className="clickable no-bg-bd text" onClick={clearCompleted}>Clear Completed</button>
         </div>
       </div>
 
@@ -120,7 +138,7 @@ function App() {
         <Navigation id="2" updateFilter={updateFilter} todosFilter={todosFilter} />
       </div>
 
-      <p className="light-text mg-y">Drag and drop to reorder list</p>
+      <p className="text mg-y">Drag and drop to reorder list</p>
 
       <Attribution />
     </div>

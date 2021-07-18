@@ -1,8 +1,37 @@
+:root {
+    --button-size: 1.35rem;
+    --check-bg-color: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+}
+
+/* Light Theme */
+.default {
+    --bg-color: var(--very-light-grayish-blue);
+    --bg-image: url('./images/bg-mobile-light.jpg');
+    --border-color: var(--very-light-grayish-blue);
+    --button-hover-color: var(--very-dark-grayish-blue);
+    --container-bg-color: var(--very-light-gray);
+    --separator-color: var(--dark-grayish-blue);
+    --text-color: var(--dark-grayish-blue);
+    --todo-text-color: var(--very-dark-grayish-blue);
+}
+
+/* Dark Theme */
+.alternate {
+    --bg-color: var(--very-dark-blue);
+    --bg-image: url('./images/bg-mobile-dark.jpg');
+    --border-color: var(--dark-grayish-blue);
+    --button-hover-color: var(--hover-light-grayish-blue);
+    --container-bg-color: var(--very-dark-desaturated-blue);
+    --separator-color: var(--very-dark-grayish-blue);
+    --text-color: var(--dark-grayish-blue);
+    --todo-text-color: var(--light-grayish-blue);
+}
+
 body {
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url('./images/bg-mobile-light.jpg');
-    background-color: var(--very-light-grayish-blue);
+    background-image: var(--bg-image);
+    background-color: var(--bg-color);
     margin: 4rem 1.25rem;
 }
 
@@ -61,16 +90,8 @@ header {
     margin: 3rem 0;
 }
 
-.very-light-text {
-    color: var(--very-light-gray);
-}
-
-.light-text {
-    color: var(--dark-grayish-blue);
-}
-
-.dark-text {
-    color: var(--very-dark-grayish-blue);
+.text {
+    color: var(--text-color);
 }
 
 .bold {
@@ -78,18 +99,19 @@ header {
 }
 
 .title {
+    color: var(--very-light-grayish-blue, var(--hover-light-grayish-blue));
     text-transform: uppercase;
     letter-spacing: 1rem;
 }
 
 .container {
-    background-color: var(--very-light-gray);
+    background-color: var(--container-bg-color);
     border-radius: 5px;
     margin-bottom: 1.25rem;
 }
 
 .todoListInfo button:hover {
-    color: var(--very-dark-grayish-blue);
+    color: var(--button-hover-color);
 }
 
 .App p {
@@ -98,9 +120,16 @@ header {
 
 /* Desktop query */
 @media (min-width: 1024px) {
-    body {
-        background-image: url('./images/bg-desktop-light.jpg');
-        margin: 5rem 17rem;
+    .default {
+        --bg-image: url('./images/bg-desktop-light.jpg');
+    }
+
+    .alternate {
+        --bg-image: url('./images/bg-desktop-dark.jpg');
+    }
+
+    .App {
+        padding: 5rem 17rem;
     }
 
     .hidden-lg {

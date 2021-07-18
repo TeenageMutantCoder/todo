@@ -1,31 +1,31 @@
-.Todo * {
-    --button-size: 1.35rem;
-}
-
 .checkbox {
-    background-color: var(--very-light-gray);
-    border: 2px solid var(--very-light-grayish-blue); 
+    background-color: var(--container-bg-color);
+    border: 2px solid var(--border-color); 
     border-radius: 50%;
     display: block;
     height: var(--button-size);
     width: var(--button-size);
 }
 
+.todo-text {
+    color: var(--todo-text-color);
+}
+
 .Todo input[type="checkbox"]:checked + .checkbox {
     background: url('../images/icon-check.svg'),
-                linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+                var(--check-bg-color);
     background-position: center;
     background-repeat: no-repeat;
     border: none;
 }
 
-.Todo input[type="checkbox"]:checked ~ .dark-text {
-    color: var(--light-grayish-blue);
+.Todo input[type="checkbox"]:checked ~ .todo-text {
+    --todo-text-color: var(--light-grayish-blue);
     text-decoration: line-through;
 }
 
 .Todo:hover input[type="checkbox"]:not(:checked) + .checkbox {
-    background: linear-gradient(hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+    background: var(--check-bg-color);
     border: none;
     display: flex;
     align-items: center;
@@ -33,7 +33,7 @@
 }
 
 .Todo:hover input[type="checkbox"]:not(:checked) + .checkbox::after {
-    background: var(--very-light-gray);
+    background: var(--container-bg-color);
     border-radius: 50%;
     content: "";
     display: block;
@@ -57,8 +57,9 @@
     display: block;
 }
 
-.Todo hr {
-    border-top: 1px solid var(--dark-grayish-blue);
+.Todo + hr {
+    border: none;
+    border-top: 1px solid var(--separator-color);
 }
 
 /* Mobile query */

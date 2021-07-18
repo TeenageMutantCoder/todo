@@ -3,7 +3,7 @@
 }
 
 .Navigation span:hover {
-    color: var(--very-dark-grayish-blue);
+    color: var(--button-hover-color);
 }
 
 .Navigation input[type="radio"]:checked + span {
