@@ -26,10 +26,12 @@ const Todo = (props) => {
 
     const onDragEnter = (e) => {
         e.preventDefault();
+        e.dataTransfer.effectAllowed = 'move';
     };
 
     const onDragOver = (e) => {
         e.preventDefault();
+        e.dataTransfer.effectAllowed = 'move';
     };
 
     // // Touch event handlers
