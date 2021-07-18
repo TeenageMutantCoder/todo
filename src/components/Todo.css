@@ -43,6 +43,7 @@
 
 .Todo input[type="text"] {
     caret-color: var(--bright-blue);
+    color: var(--text-color);
     outline: none;
     padding: 0.3rem 0;
 }

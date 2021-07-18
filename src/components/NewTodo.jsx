@@ -4,7 +4,6 @@ import { useRef } from 'react';
 const NewTodo = (props) => {
     const { addTodo } = props;
     const checkboxRef = useRef();
-    const textRef = useRef();
     const onKey = (e) => {
         if (e.key === 'Enter') {
             const isCompleted = checkboxRef.current.checked;
@@ -22,7 +21,7 @@ const NewTodo = (props) => {
                 <input ref={checkboxRef} type="checkbox" className="hidden" name="todoCompleted" />
                 <span className="clickable checkbox"></span>
             </label>
-            <input ref={textRef} onKeyDown={onKey} type="text" className="mg-x no-bg-bd extend" placeholder="Create a new todo..." />
+            <input onKeyDown={onKey} type="text" className="mg-x no-bg-bd extend" placeholder="Create a new todo..." />
         </div>
     );
 }
