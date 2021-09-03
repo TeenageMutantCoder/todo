@@ -64,7 +64,7 @@ While making this project, I learned how to:
 
 ### Continued development
 
-After working on this project, I realized the usefulness of mobile-first development. It is easier to design and style a website using this approach in my opinion, so I will continue to use this approach in the future. Also, I will likely continue to use Javascript frameworks like React when making a web app because seperating the logic and design into various reusable components is beneficial for focusing on a single part at a time while developing or maintaining.
+After working on this project, I realized the usefulness of mobile-first development. It is easier to design and style a website using this approach in my opinion, so I will continue to use this approach in the future. Also, I will likely continue to use Javascript frameworks like React when making a web app because seperating the logic and design into various reusable components is beneficial for focusing on a single part at a time while developing or maintaining. One last improvement that I could make in my workflow is making more commits. During this project and before, I made a lot of progress before commiting changes. In the future, I plan to make commits after smaller changes.
 
 ### Useful resources
 
