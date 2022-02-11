@@ -34,20 +34,6 @@ const Todo = (props) => {
         e.dataTransfer.effectAllowed = 'move';
     };
 
-    // // Touch event handlers
-    // const onTouchStart = (e) => {
-    //     e.preventDefault();
-    //     console.log(e.changedTouches);
-    //     console.log(e.targetTouches);
-    //     console.log(e.target);
-    // };
-    // const onTouchMove = (e) => {
-    //     e.preventDefault();
-    // };
-    // const onTouchEnd = (e) => {
-    //     e.preventDefault();
-    // };
-    window.ontouchmove = () => {};
     return (
         <>
         <div className="Todo flex-sb-c height pd-x" data-id={id} draggable="true" onDragOver={onDragOver} 
