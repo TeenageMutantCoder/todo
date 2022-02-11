@@ -1,4 +1,5 @@
 import './Todo.css';
+import SrOnlyText from "./SrOnlyText";
 
 const Todo = (props) => {
     const { id, text, isCompleted, deleteTodo, editTodo, moveTodo } = props;
@@ -44,7 +45,9 @@ const Todo = (props) => {
                 <span className="checkbox clickable" data-id={id}></span>
                 <span className="mg-x todo-text extend clickable" data-id={id}>{text}</span>
             </label>
-            <button type="button" className="hidden clickable no-bg-bd bg-center-no-re" onClick={(e) => deleteTodo(id)}></button>
+            <button type="button" className="hidden clickable no-bg-bd bg-center-no-re" onClick={(e) => deleteTodo(id)}>
+                <SrOnlyText>Delete Todo</SrOnlyText>
+            </button>
         </div>
         <hr data-id={id} onDragEnter={onDragEnter} onDragOver={onDragOver} onDrop={onDrop} />
         </>
